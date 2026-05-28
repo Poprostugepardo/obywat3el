@@ -2,7 +2,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* Czcionki jak w nowej wersji */
+/* Czcionki */
 .value {
     font-size: 24px;
     font-weight: 600;
@@ -78,17 +78,6 @@ body .bottom_bar {
     margin-bottom: auto;
 }
 
-.eagle_text {
-    font-size: 14px;
-    font-weight: 200;
-    margin-top: 0px;
-    margin-bottom: auto;
-    height: max-content;
-    line-height: 17px;
-    margin-left: 1px;
-    color: gray;
-}
-
 .action_grid {
     cursor: pointer;
     margin-left: 10px;
@@ -107,21 +96,20 @@ body .bottom_bar {
     height: max-content;
 }
 
-/* ZDJĘCIE - WIĘKSZE I W PIONIE (jak na nowych zdjęciach) */
+/* ZDJĘCIE - WYMIARY 2cm x 2.5cm (przeliczone na px dla iPhone 16 Pro) */
 .id_own_image {
     pointer-events: none;
     filter: grayscale(1);
-    box-shadow: 0px 0px 5px white;
     box-shadow: inset 0px 0px 12px rgba(255, 255, 255, 0.18);
     position: absolute;
-    top: 4%;
-    left: 6%;
-    width: 36%;           /* Szerokość */
-    height: 48%;          /* Zwiększona wysokość dla pionowego zdjęcia */
-    border-radius: 10px;  /* Mniejsze zaokrąglenie */
+    top: 3.5%;
+    left: 7%;              /* 0.8cm od lewej */
+    width: 30%;            /* ~2cm szerokości */
+    height: 38%;           /* ~2.5cm wysokości */
+    border-radius: 8px;
     background-color: white;
     background-position: center;
-    background-size: cover; /* Lepiej wypełnia pionowe zdjęcie */
+    background-size: cover;
     background-repeat: no-repeat;
     z-index: 0;
 }
@@ -129,36 +117,66 @@ body .bottom_bar {
 .inset {
     background-color: transparent;
     position: absolute;
-    top: 4%;
-    left: 6%;
-    width: 36%;
-    border-radius: 10px;
-    height: 48%;
+    top: 3.5%;
+    left: 7%;
+    width: 30%;
+    border-radius: 8px;
+    height: 38%;
     z-index: 1;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-/* SIATKA DANYCH - PRZESUNIĘTA DALEJ W PRAWO */
+/* FLAGA POD ZDJĘCIEM */
+.flag_video {
+    position: absolute;
+    top: 43%;              /* Pod zdjęciem */
+    left: 7%;              /* Wyrównana do zdjęcia */
+    width: 18%;
+    z-index: 2;
+}
+
+/* ORZEŁ + RZECZPOSPOLITA POD FLAGĄ */
+.eagle_video {
+    position: absolute;
+    top: 48%;              /* Pod flagą */
+    left: 7%;
+    width: 8%;
+    z-index: 2;
+}
+
+.eagle_text {
+    position: absolute;
+    top: 48%;
+    left: 16%;             /* Obok orła */
+    width: 25%;
+    font-size: 12px;
+    font-weight: 400;
+    color: #666;
+    line-height: 1.2;
+    margin: 0;
+}
+
+/* SIATKA DANYCH - PO PRAWEJ OD ZDJĘCIA (0.3cm = ~18px odstępu) */
 .id_data_grid {
     position: absolute;
-    top: 4%;
-    left: 46%;          /* Bardziej w prawo niż wcześniej */
+    top: 3.5%;
+    left: 40%;             /* Zdjęcie (7% + 30%) + odstęp 3% = ~0.3cm */
     display: grid;
     grid-template-columns: 100%;
     grid-auto-flow: row;
     grid-auto-rows: auto;
-    gap: 14px;          /* Odstępy między polami */
-    width: 50%;
+    gap: 12px;
+    width: 55%;
 }
 
 .data_value {
-    color: #6b7280;     /* Szary kolor etykiet */
+    color: #6b7280;
     height: max-content;
     margin-top: 2px;
     margin-bottom: auto;
-    font-size: 12px;    /* Mniejsze etykiety */
+    font-size: 11px;
 }
 
 .data_holder {
@@ -169,39 +187,11 @@ body .bottom_bar {
     grid-template-rows: max-content max-content;
 }
 
-/* FLAGA - POZYCJA */
-.flag_video {
-    position: absolute;
-    top: 56%;
-    left: 6%;
-    width: 20%;
-}
-
-/* TEKST RZECZPOSPOLITA */
-.eagle_text {
-    position: absolute;
-    top: 56%;
-    left: 17%;
-    width: 20%;
-    font-size: 13px;
-    font-weight: 400;
-    color: #666;
-    line-height: 1.2;
-}
-
-/* ORZEŁ - POZYCJA */
-.eagle_video {
-    position: absolute;
-    top: 54%;
-    left: 6%;
-    width: 9%;
-}
-
-/* TYTUŁY DANYCH - WIĘKSZE (imię, nazwisko, PESEL) */
+/* TYTUŁY DANYCH */
 .data_title {
     font-weight: 600;
-    color: #1a1a1a;     /* Ciemniejszy niż wcześniej */
-    font-size: 21px;    /* Większa czcionka */
+    color: #1a1a1a;
+    font-size: 19px;
     height: max-content;
     margin-top: auto;
     margin-bottom: auto;
@@ -213,15 +203,14 @@ body .bottom_bar {
     position: relative;
 }
 
-/* TŁO KARTY */
+/* TŁO KARTY - WYSOKOŚĆ 5.6cm (bez paska) / 6.6cm (z paskiem) */
 .id_image {
     z-index: -1;
     width: 95%;
-    height: 53%;
+    height: 48%;           /* Dostosowane do ~5.6cm */
     margin-left: auto;
     margin-right: auto;
     display: block;
-    z-index: -1;
     pointer-events: none;
     box-shadow: var(--shadow);
     clip-path: inset(-10px -10px 0px -10px);
@@ -265,11 +254,12 @@ body .bottom_bar {
     margin-bottom: auto;
 }
 
+/* DOKUMENT WAŻNY - PASEK NA DOLE */
 .id_bottom {
     box-shadow: var(--shadow);
     border-radius: 0px 0px 19px 19px;
     background-color: var(--background2);
-    height: 80px;
+    height: 65px;          /* Dostosowane do łącznej wysokości 6.6cm */
     z-index: 1;
     width: 95%;
     margin-left: auto;
